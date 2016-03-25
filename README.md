@@ -23,6 +23,7 @@ You need to include the wsapi.js script file in your website, before you access 
   function toText(data, isOld) {
     document.write("<pre>" + JSON.stringify(data) + "</pre>");
   }
+  wsapi.interpreter["example"] = toText;
   
   // example subscription
   wsapi.initSubscribe.push("example")
@@ -93,6 +94,7 @@ These method is used for publishing a message from a client to the server. Other
 ```javascript
 wsapi.writeMessage("exampleType", {data: "anything", blocks: [1, 2, 3], more: false});
 ```
+You don't need to subscribe or unsubscribe to the message type you are publishing to. However, you will get an echo message from the server, if you publish a message for a message type you are subscribed to.
 
 ### Parse a message from the server
 Received messages will be redirected to an interpreter function. If no interpreter is found, it will be send to the defaultInterpreter, which creates a div-block in the body element of the client page.
