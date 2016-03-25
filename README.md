@@ -41,13 +41,13 @@ There are static fields, you might want to change to your purposes, before using
 
 | Field | Type | Description | Default |
 |:------|:-----|:------------|:--------|
-| ```wsapi.wsurl``` | string | the server url without http(s) | maltegegner.de/wsapi |
-| ```wsapi.preventRestarts``` | boolean | disable restarting, when connection was lost (max 100 times) | false |
-| ```wsapi.restartMaxTime``` | integer | the maximal time in milliseconds before the next connection restart is tried | 60000 |
-| ```wsapi.tickrates``` | [integer] | the times in milliseconds to update messages to and from the server | [1000, 100, 50, 33, 16, 5] |
-| ```wsapi.initSubscribe``` | [string] | the message types to subscribe when initializing | [] |
-| ```wsapi.interpreter``` | {string:function} | a map of interpreter functions for message types | {} |
-| ```wsapi.allowConsole``` | boolean | write debug messages to the console.log function | false |
+| ```wsapi.wsurl``` | string | The server websocket URL without http(s). | maltegegner.de/wsapi |
+| ```wsapi.preventRestarts``` | boolean | Disables the restarting process, when the connection to the server was lost (max 100 times). | false |
+| ```wsapi.restartMaxTime``` | integer | The maximum time in milliseconds, before the next restart process is tried. | 60000 |
+| ```wsapi.tickrates``` | [integer] | The times in milliseconds to update messages to and from the server. If the message queue is getting to large, the update rate will use the next value in the array to keep up. If the queue gets smaller, the update rate will return to the previous value in the array. | [1000, 100, 50, 33, 16, 5] |
+| ```wsapi.initSubscribe``` | [string] | The message types to subscribe to, when initializing. | [] |
+| ```wsapi.interpreter``` | {string:function} | The map of interpreter functions. You need to connect the interpreter functions to this variable. | {} |
+| ```wsapi.allowConsole``` | boolean | Writes debug messages to the console.log method, if true. | false |
 
 ### Methods
 These are the methods, the framework offers.
